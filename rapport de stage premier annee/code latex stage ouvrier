@@ -1,1 +1,1181 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{lipsum} % pour générer du texte factice
+
+\begin{document}
+
+% Page de garde
+\begin{titlepage}
+    % Logos
+    \begin{minipage}[t]{0.48\textwidth}
+        \vspace{-1.5cm} % Adjust the vertical space
+        \includegraphics[width=1\linewidth]{esi.jpg} % Change 'esi.jpg' to the path of your school logo
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \vspace{-1.8cm} % Adjust the vertical space
+        \includegraphics[width=0.5\linewidth]{doosys.png} % Change 'doosys.png' to the path of your organization logo
+    \end{minipage}
+
+    % Cadre bleu
+    \vspace{1cm}
+    \begin{center}
+        \begin{tikzpicture}
+            \node[draw, fill=blue!20, text width=0.9\textwidth, inner sep=0.5cm] {
+                \begin{minipage}{0.9\textwidth}
+                    \begin{center}
+                        \huge\textbf{Rapport de stage ouvrier}\\[0.5cm]
+                        \Large\textbf{1ère ICSD}\\[0.5cm]
+                        \Large\textbf{Année Universitaire :2023/2024}\\[0.5cm]
+                        \large Le créneau du stage : Developement Odoo,kM
+                    \end{center}
+                \end{minipage}
+            };
+        \end{tikzpicture}
+    \end{center}
+
+    \vspace{1cm}
+
+    % Informations de l'étudiant et du tuteur
+    \begin{center}
+        \large
+        \begin{tabbing}
+            \hspace{8cm} \= \kill
+            \textbf{Etudiant :} \> \\
+             M. : OUCHCHEN Omar. (Groupe A) \\
+            \\
+            \textbf{Nom du tuteur :} \> \\
+             Mr : OUBELKAS Hicham
+        \end{tabbing}
+    \end{center}
+\end{titlepage}
+
+\chapter*{Remerciements}
+\addcontentsline{toc}{chapter}{Remerciements}
+
+Je tiens à exprimer ma profonde gratitude à toutes les personnes qui ont contribué à la réalisation de ce stage et de ce rapport.
+
+Je remercie tout particulièrement M. Hicham Oubelkas et M. Billal Ait Si Alli pour leur encadrement, leurs conseils précieux et leur soutien tout au long de cette expérience enrichissante. Leur expertise et leur disponibilité ont grandement facilité mon apprentissage et m'ont permis de mener à bien les tâches qui m'ont été confiées.
+
+Je remercie également toute l'équipe de l'entreprise Doosys pour leur accueil chaleureux, leur collaboration et leur aide précieuse. Travailler dans un environnement aussi professionnel et convivial a été une expérience très positive.
+
+Mes remerciements vont également à l'ensemble de mes professeurs pour leur formation pertinente qui m'a fourni les connaissances nécessaires pour aborder ce stage avec confiance. Je suis particulièrement reconnaissant envers la direction de l'École de Science de l'Information pour leur soutien et leur encadrement.
+
+Enfin, je tiens à remercier ma famille pour leur soutien inconditionnel et leurs encouragements constants. Leur présence et leur appui ont été essentiels pour la réussite de cette étape importante de ma formation.
+
+Merci à tous pour votre contribution et votre soutien.
+
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+
+Ce rapport présente les travaux effectués au sein de l'entreprise Doosys dans le cadre de mon stage d'initiation. Durant cette période, j'ai eu l'opportunité de participer à plusieurs projets ambitieux.
+
+Le premier projet consistait à développer une application en Odoo pour la gestion et l'archivage des documents bancaires pour l'entreprise PROCHECK. Ce projet s'est déroulé en plusieurs étapes :
+\begin{itemize}
+    \item \textbf{Analyse des besoins} : Une analyse approfondie des besoins de l'entreprise a été réalisée pour comprendre les exigences spécifiques et les fonctionnalités nécessaires pour l'application.
+    \item \textbf{Développement de l'application} : J'ai travaillé sur la création de modules personnalisés pour gérer différents types de documents (CIN, passeport, facture, permis, etc.) et intégré une fonctionnalité de reconnaissance optique de caractères (OCR) pour automatiser l'extraction des données à partir des documents scannés.
+    \item \textbf{Amélioration de l'interface utilisateur} : J'ai contribué à rendre l'application plus intuitive et conviviale et effectué des tests rigoureux pour garantir sa fiabilité et sa performance.
+    \item \textbf{Documentation} : J'ai rédigé des guides d'utilisation pour faciliter la prise en main de l'application par les utilisateurs finaux.
+\end{itemize}
+
+Un autre aspect majeur de mon stage a été la réalisation d'un projet de gestion de courrier intitulé **Courrier **. Ce module vise à optimiser le traitement des courriers au sein de l'entreprise Doosys et a été développé avec les objectifs suivants :
+\begin{itemize}
+    \item \textbf{Gestion des demandes} : Création et gestion des demandes de courrier avec des services personnalisables en fonction des besoins de l'entreprise. Les services peuvent être configurés pour différents types et catégories de demandes, et publiés sur le site Web de l'entreprise pour une gestion simplifiée.
+    \item \textbf{Soumission et suivi via le site web} : Les clients peuvent soumettre leurs courriers directement depuis le site web de l'entreprise, suivre le statut de leurs demandes, et communiquer avec l'équipe d'assistance via un fil de discussion intégré.
+    \item \textbf{Traitement des courriers} : Les courriers soumis sont traités via une interface dédiée où ils peuvent être attribués à des responsables et où les clients peuvent recevoir des mises à jour sur l'état de leurs demandes.
+    \item \textbf{Vue des activités} : Les agents disposent d'une vue détaillée des activités liées aux demandes des clients, facilitant ainsi le suivi et la gestion des courriers en cours.
+\end{itemize}
+
+Ce stage m'a permis de mettre en pratique mes connaissances théoriques en développement logiciel et de découvrir le fonctionnement d'un environnement professionnel. J'ai acquis de nouvelles compétences techniques, notamment en développement d'applications Odoo et en gestion de projets informatiques. J'ai également développé une meilleure compréhension des processus de gestion des documents et des courriers au sein d'une entreprise. Cette expérience enrichissante a renforcé mon intérêt pour le développement d'applications et la gestion de projets informatiques.
+
+\tableofcontents
+\newpage
+% Liste des abréviations
+\chapter*{Liste des abréviations}
+\addcontentsline{toc}{chapter}{Liste des abréviations}
+\begin{tabbing}
+    abréviation \hspace{2cm} \= définition \kill
+    OCR \> Optical Character Recognition \\
+    ERP \> Enterprise Resource Planning \\
+    GED \> Gestion Electronique de Document \\
+    CRM \> Customer Relationship Management \\
+    TMS \> Transport Management System \\
+    API \> Application Programming Interface \\
+    CIN \> Carte d'Identité Nationale \\
+    HCP \> Haut Commissariat au Plan \\
+    
+\end{tabbing}
+\newpage
+% Table des figures
+\listoffigures
+\newpage
+
+\chapter{Introduction}
+
+\section{Contexte du stage}
+Ce stage d'initiation a été effectué au sein de l'entreprise Doosys, spécialisée dans les services informatiques basés sur ERP utilisant Odoo. L'entreprise offre des solutions innovantes pour la gestion et l'archivage de documents, avec une expertise particulière dans le secteur bancaire. Le stage s'est déroulé du 1er juillet 2024 au 20 août 2024.
+
+\section{Objectifs du stage}
+Les principaux objectifs de ce stage étaient de :
+\begin{itemize}
+    \item Découvrir le monde professionnel et s'intégrer dans un environnement de travail dynamique.
+    \item Comprendre le fonctionnement et les besoins spécifiques de l'entreprise Doosys.
+    \item Acquérir des compétences techniques en développement d'applications avec Odoo.
+    \item Réaliser une application pour la gestion et l'archivage des documents bancaires.
+    \item Mettre en œuvre une fonctionnalité de reconnaissance optique de caractères (OCR) pour automatiser l'extraction des données.
+\end{itemize}
+
+\section{Méthodologie}
+La méthodologie adoptée pour ce projet s'est déroulée en plusieurs phases :
+\begin{enumerate}
+    \item \textbf{Analyse des besoins} : Comprendre les exigences de l'entreprise et définir les fonctionnalités nécessaires pour l'application.
+    \item \textbf{Développement} : Utiliser le framework Odoo pour créer des modules personnalisés et intégrer les fonctionnalités requises.
+    \item \textbf{Tests et validation} : Effectuer des tests rigoureux pour assurer la fiabilité et la performance de l'application.
+    \item \textbf{Documentation} : Rédiger des guides d'utilisation et documenter les étapes du projet pour faciliter la prise en main par les utilisateurs finaux.
+\end{enumerate}
+
+% Présentation de l'Entreprise
+\chapter{Présentation de l'entreprise Doosys}
+
+\section{Historique et Domaine d'Activité}
+Doosys est une société innovante spécialisée dans les services informatiques, principalement axée sur l'intégration de solutions ERP (Enterprise Resource Planning). Fondée en 2018 pour répondre aux besoins croissants des entreprises en matière de gestion efficace et intégrée, Doosys se distingue par son expertise dans la personnalisation et l'implémentation de solutions adaptées aux besoins spécifiques de ses clients.
+
+\section{Philosophie et Objectifs}
+La philosophie de Doosys repose sur l'idée de transformer les défis opérationnels en opportunités de croissance. En s'appuyant sur une approche personnalisée et une compréhension profonde des besoins métier de ses clients, l'entreprise vise à optimiser les processus, à accroître l'efficacité opérationnelle et à stimuler l'innovation.
+
+\section{Solutions Proposées}
+Doosys offre une gamme complète de solutions incluant la gestion des ressources humaines (RH), la gestion de la relation client (CRM), la gestion des finances (ERP financier), ainsi que des solutions mobiles et des systèmes de gestion de transport (TMS). Ces solutions visent à rationaliser les opérations, à améliorer la visibilité des données et à renforcer la compétitivité des entreprises.
+
+\section{Clients et Partenaires}
+Doosys collabore avec un large éventail de clients, allant des petites et moyennes entreprises aux grandes corporations, dans divers secteurs tels que la finance, le commerce, la distribution, et plus encore. La confiance accordée par ses clients et ses partenaires stratégiques témoigne de son engagement à fournir des solutions fiables et évolutives.
+
+\section{Engagement envers l'Innovation}
+En tant qu'acteur majeur dans le domaine des technologies de l'information, Doosys investit continuellement dans la recherche et le développement pour anticiper les évolutions du marché et intégrer les dernières avancées technologiques. Cet engagement envers l'innovation permet à l'entreprise de rester à la pointe et de répondre efficacement aux défis futurs de ses clients.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.2\textwidth]{do1.png}
+    \caption{Engagement de l'entreprise.}
+    \label{fig:demande_consulting}
+\end{figure}
+\section{Implantations et Équipe}
+Doosys opère à travers plusieurs sites stratégiques, soutenu par une équipe talentueuse de développeurs, consultants et experts techniques certifiés. Cette structure lui permet d'offrir un service de qualité et une assistance personnalisée à ses clients.
+
+Cette section présente Doosys en mettant l'accent sur son histoire, ses activités principales, ses valeurs et ses engagements, ainsi que sa position sur le marché des services informatiques.
+
+
+% Travaux Réalisés
+\chapter{Formation et Autoformation}
+
+\section{Autoformation et Développement sur Odoo}
+
+Pendant la première semaine de mon stage, j'ai entrepris une autoformation intensive sur le développement avec Odoo. J'ai principalement utilisé la documentation officielle d'Odoo et suivi un tutoriel pour développer une application immobilière. Cette phase m'a permis d'acquérir une compréhension approfondie des concepts fondamentaux d'Odoo et de commencer à développer des compétences pratiques en création d'applications.
+
+\subsection{Application Immobilière}
+
+Pour mettre en pratique mes connaissances nouvellement acquises, j'ai suivi le tutoriel de développement d'une application immobilière sur Odoo. Voici les aspects clés que j'ai abordés :
+
+\begin{itemize}
+    \item \textbf{Configuration de l'environnement de développement Odoo} : Mise en place de l'environnement de développement et installation des modules nécessaires.
+    \item \textbf{Création de modules Odoo} : Développement de modules pour gérer les biens immobiliers, incluant les fonctionnalités de gestion des propriétés et des clients.
+    \item \textbf{Définition des modèles de données} : Conception de modèles de données pour les propriétés et les clients, afin de structurer les informations de manière efficace.
+    \item \textbf{Implémentation des vues} : Création de vues pour afficher et gérer les biens immobiliers dans l'application.
+    \item \textbf{Intégration de fonctionnalités de recherche} : Ajout de fonctionnalités avancées de recherche et de filtrage pour améliorer l'expérience utilisateur.
+\end{itemize}
+
+\subsection*{Captures d'Écran}
+
+Voici quelques captures d'écran illustrant le travail effectué sur l'application immobilière :
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{screenshot2.png}
+    \caption{Interface principale de l'application immobilière développée sur Odoo.}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{screenshot1.png}
+    \caption{Exemple de vue détaillée d'une propriété dans l'application.}
+\end{figure}
+
+Ces captures d'écran montrent les progrès réalisés dans la maîtrise d'Odoo pour le développement d'applications.
+
+\newpage
+\section{Recherche des Méthodes OCR}
+
+Avant de débuter le projet principal, j'ai consacré du temps à explorer les différentes méthodes de Reconnaissance Optique de Caractères (OCR) disponibles en Python. Cette recherche visait à sélectionner les technologies et bibliothèques les plus adaptées pour intégrer la lecture automatisée de documents dans notre application Odoo.
+
+\subsection{Exploration des Bibliothèques OCR}
+
+J'ai exploré plusieurs bibliothèques OCR populaires, chacune avec ses avantages et limitations :
+
+\begin{itemize}
+    \item \textbf{Tesseract OCR} : Bibliothèque OCR open-source largement utilisée, offrant des capacités de reconnaissance multilingue. J'ai étudié sa documentation pour comprendre son installation et son intégration avec Python.
+    \item \textbf{OpenCV} : Principalement utilisé pour la vision par ordinateur, OpenCV est utile pour le traitement d'images et peut être combiné avec Tesseract pour améliorer la qualité de la reconnaissance OCR, notamment par le prétraitement des images.
+\end{itemize}
+
+\subsection{Méthodologies et Comparaison}
+
+Pour déterminer la méthode OCR la plus appropriée pour notre projet chez PROCHECK, j'ai réalisé des tests comparatifs en considérant :
+
+\begin{itemize}
+    \item \textbf{Précision de la reconnaissance} : Évaluation de la précision dans des conditions variées (différents types de documents comme factures, CIN, passeports).
+    \item \textbf{Performance de traitement} : Mesure de la vitesse de traitement pour assurer une expérience utilisateur fluide.
+    \item \textbf{Adaptabilité} : Vérification de la capacité à extraire et structurer les données pertinentes des documents scannés.
+\end{itemize}
+
+\subsection{Choix de la Solution OCR}
+
+Suite à mes recherches et tests, nous avons opté pour Tesseract OCR en raison de sa robustesse, de sa communauté active et de sa gestion multilingue. OpenCV a été utilisé pour améliorer la qualité des images avant la reconnaissance OCR, ce qui a permis d'obtenir des résultats plus précis.
+
+\subsection{Intégration dans l'Application Odoo}
+
+Après avoir sélectionné la technologie OCR appropriée, j'ai intégré cette fonctionnalité dans notre application Odoo pour PROCHECK. Cette phase a impliqué :
+\begin{itemize}
+    \item \textbf{Conception des modèles de données} : Création des modèles pour stocker les informations extraites des documents.
+    \item \textbf{Écriture des scripts Python} : Développement de scripts pour le traitement des images et l'extraction des informations.
+    \item \textbf{Interface utilisateur} : Création d'une interface pour permettre aux utilisateurs de télécharger et gérer des documents OCRisés efficacement.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{screenshot3.png}
+    \caption{Exemple de vue d'une fonctionnalité OCR intégrée dans l'application Odoo.}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{screenshot4.png}
+    \caption{Exemple de traitement d'un document OCRisé.}
+\end{figure}
+
+\newpage
+\chapter*{Projet réaliser}
+\chapter{Module de gestion du courrier}
+
+Ce rapport présente le projet de gestion de courrier que j'ai réalisé durant mon stage chez Doosys. Le projet consiste en la création d'un module Odoo nommé "Courrier Lite" pour simplifier le traitement des courriers. Le rapport est divisé en deux grandes parties : "Request" et "Knowledge". La première partie couvre la configuration des demandes et leur apparition sur le site web dans la section "Service Desk". La seconde partie traite de la gestion des connaissances, avec des sous-parties pour la configuration et l'interface sur le site web, appelée "Bureaucrat Knowledge".
+
+\section{Types de Courrier}
+
+\subsubsection{Courrier Arrivée}
+Le courrier arrivée est celui reçu de l’extérieur. Ce type de courrier est enregistré et distribué aux départements concernés.
+
+\subsubsection{Courrier Départ}
+Le courrier départ est celui qui doit être envoyé à l’extérieur. Il est créé, enregistré et suivi jusqu'à son envoi.
+
+\subsubsection{Courrier Interne}
+Le courrier interne est échangé entre deux entités internes de l'entreprise. Il est enregistré et suivi pour assurer une communication efficace entre les départements.
+
+\subsubsection{Lancement de l’Application}
+Pour accéder à l'application Odoo et utiliser le module "Courrier Lite", suivez les étapes suivantes :
+
+\begin{enumerate}
+    \item \textbf{Lancer Odoo} : Ouvrez votre navigateur web et entrez l’adresse suivante pour accéder à l’instance de test d’Odoo : \url{http://51.83.72.240:16003/}
+    \item \textbf{Choisir la Base de Données} : Sélectionnez la base de données appropriée si plusieurs options sont disponibles.
+    \item \textbf{Connexion} : Entrez vos identifiants pour vous connecter à l’application.
+    \begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{scr1.png}
+    \caption{Page de connexion `a Odoo}
+    \label{fig:interface_knowledge}
+\end{figure}
+\end{enumerate}
+
+\section{Request}
+
+\subsection{Configuration de Request}
+
+\subsubsection{Interface de l'application}
+La première étape pour configurer une demande consiste à naviguer dans l'interface de l'application. Voici une capture d'écran de l'interface principale de "Courrier Lite" :
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{1.png}
+    \caption{Interface de l'application Courrier Lite}
+    \label{fig:interface_application}
+\end{figure}
+
+\subsubsection{Workflow}
+Le workflow d'une demande est crucial pour garantir un traitement efficace. Voici les étapes typiques d'un workflow dans "Courrier" :
+
+\begin{itemize}
+    \item \textbf{Création de la demande} : L'utilisateur soumet une nouvelle demande.
+    \item \textbf{Traitement} : La demande passe par différentes étapes, telles que « En cours », « Rouverte » et « Fermée ».
+    \item \textbf{Résolution} : La demande est traitée et une réponse est fournie au client.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{2.png}
+    \caption{Workflow}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+\subsubsection{Comment créer une nouvelle demande}
+Pour créer une nouvelle demande, suivez les étapes ci-dessous :
+
+\begin{itemize}
+    \item Accédez à la section "request".
+    \item Cliquez sur le bouton "New".
+    \item Remplissez les champs requis, tels que le type de demande et la description,la catégorie.
+     \item \textbf{Option Scanner} : Cliquez sur "Ajouter un Document Numérisé".
+    \item Téléchargez l'image ou le PDF,image du courrier numérisé.
+    \item L'application extraira automatiquement les données pertinentes du courrier et les remplira dans les champs appropriés.
+    \item Vérifiez les informations extraites et effectuez les modifications nécessaires si nécessaire.
+    
+    \item Soumettez la demande.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{3.png}
+    \caption{créer une nouvelle demande}
+    \label{fig:interface_knowledge}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{4.png}
+    \caption{créer une nouvelle demande}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+\subsubsections{Création de catégories}
+La catégorisation des demandes aide à organiser et prioriser les requêtes. Voici comment créer une catégorie :
+
+\begin{itemize}
+     \item Accédez à la section "Configuration"
+    \item Accédez à la section "Catégories".
+    \item Cliquez sur "New".
+    \item Saisissez le nom et la description de la catégorie.
+    \item Enregistrez la nouvelle catégorie.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{5.png}
+    \caption{créer une nouvelle catégorie}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+
+\subsubsection{Création de types de demandes}
+Les types de demandes permettent de spécifier le format et le contenu des demandes. Lors de la création ou de la modification d'un type de demande, vous pouvez également définir et ajuster le workflow associé, incluant les routes, les étapes (stages) et les classifications. Voici les étapes pour créer ou modifier un type de demande :
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{7.png}
+    \caption{interface de page types}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+\begin{itemize}
+    \item Accédez à la section "Configuration"
+    \item Accédez à la section "Types".
+    \item Cliquez sur "Nouveau Type" ou sélectionnez un type existant pour modification.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{8.png}
+    \caption{créer un nouvelle types}
+    \label{fig:interface_knowledge}
+\end{figure}
+    \item Saisissez le nom et la description du type de demande.
+    \item \textbf{Définir le Workflow} :
+        \begin{itemize}
+            \item \textbf{Ajouter des Routes} : Définissez les différentes routes que le type de demande peut suivre. Chaque route représente une séquence de traitement spécifique. Pour ajouter une route, cliquez sur "Route" et spécifiez les étapes de cette route.
+ \begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{9.png}
+    \caption{Ajouter des Routes}
+    \label{fig:interface_knowledge}
+\end{figure}
+            \item \textbf{Ajouter des Étapes (Stages)} : Spécifiez les étapes par lesquelles une demande doit passer. Par exemple, "Réception", "En cours", "En attente", "Fermée". Pour chaque étape, définissez les actions possibles et les transitions vers les autres étapes.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{10.png}
+    \caption{Ajouter des Étapes (Stages)}
+    \label{fig:interface_knowledge}
+\end{figure}
+            \item \textbf{Définir la Classification} : Attribuez des classifications à ce type de demande pour mieux organiser et prioriser les demandes. Cela peut inclure des niveaux de priorité ou des catégories spécifiques.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{11.png}
+    \caption{Définir la Classification}
+    \label{fig:interface_knowledge}
+\end{figure}
+        \end{itemize}
+    \item Enregistrez les modifications ou le nouveau type de demande.
+\end{itemize}
+
+
+
+
+\subsubsection{Création de modèles d'email}
+Les modèles d'email facilitent la communication avec les clients. Voici comment créer un modèle d'email :
+
+\begin{itemize}
+    \item Accédez à la section "Configuration"
+    \item Accédez à la section "mail tamplaite".
+    \item Cliquez sur "New".
+    \item Saisissez le sujet et le contenu de l'email.
+    \item Enregistrez le modèle d'email.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{12.png}
+    \caption{Création de modèles d'email}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+
+\subsection{Apparition sur le Site Web}
+
+\subsubsection{Création de demandes sur le site web}
+Pour créer une demande via le site web, suivez les étapes suivantes :
+
+\begin{enumerate}
+    \item Accédez à la section "Service Desk" sur le site web de l'entreprise.
+    \item Cliquez sur "Créer une demande".
+    \item Remplissez les informations requises.
+\end{enumerate}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{13.png}
+    \caption{Création de demandes sur le site web}
+    \label{fig:interface_knowledge}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{14.png}
+    \caption{Création de demandes sur le site web}
+    \label{fig:interface_knowledge}
+\end{figure}
+\subsubsection{Sélection de la catégorie}
+Après avoir cliqué sur "Créer une demande", sélectionnez la catégorie appropriée pour votre demande :
+
+\begin{itemize}
+    \item Choisissez une catégorie dans la liste déroulante.
+    \item Si la catégorie n'existe pas, contactez l'administrateur pour en créer une nouvelle.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{15.png}
+    \caption{Sélection de la catégorie}
+    \label{fig:interface_knowledge}
+\end{figure}
+\subsubsection{Sélection du type de demande}
+Une fois la catégorie sélectionnée, choisissez le type de demande correspondant :
+
+\begin{itemize}
+    \item Sélectionnez le type de demande dans la liste déroulante.
+    \item Assurez-vous que le type de demande correspond à votre problème ou requête.
+\end{itemize}
+
+\subsection{Écrire le contenu de la demande}
+Enfin, écrivez le contenu de votre demande :
+
+\begin{itemize}
+    \item Décrivez clairement le problème ou la requête.
+    \item Ajoutez toute information supplémentaire pertinente.
+    \item Cliquez sur "Soumettre" pour envoyer votre demande.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{16.png}
+    \caption{Écrire le contenu de la demande et Soumettre}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+\section{Knowledge}
+
+\subsection{Configuration de Knowledge}
+
+\subsubsection{Interface de l'application}
+La première étape pour configurer la gestion des connaissances consiste à naviguer dans l'interface de l'application. Voici une capture d'écran de l'interface principale de la gestion des connaissances dans "Courrier Lite" :
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{17.png}
+    \caption{Interface de l'application Knowledge}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+\subsubsection{Création de catégories}
+Pour organiser les connaissances, vous pouvez créer des catégories :
+
+\begin{itemize}
+    \item Accédez à la section "Catégories".
+    \item Cliquez sur "New".
+    \item Saisissez le nom et la description de la catégorie.
+    \item Enregistrez la nouvelle catégorie.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{18.png}
+    \caption{Création de catégories}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+\subsubsection{Création de types de documents}
+Les types de documents permettent de spécifier le format et le contenu des connaissances. Pour créer un type de document :
+
+\begin{itemize}
+    \item Accédez à la section "Types de Documents".
+    \item Cliquez sur "New".
+    \item Saisissez le nom et la description du type de document.
+    \item Enregistrez le nouveau type.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{21.png}
+    \caption{Création de types de documents}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+\subsubsection{Gestion des accès et de la visibilité}
+Pour définir qui peut voir et modifier les connaissances, suivez ces étapes :
+
+\begin{itemize}
+    \item Accédez à la section "categories".
+    \item Sélectionnez l'utilisateur ou le groupe d'utilisateurs.
+    \item Définissez les permissions d'accès (lecture, écriture, etc.).
+    \item Définissez la visibilité des articles individuellement ou par catégorie.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{20.png}
+    \caption{Gestion des accès et de la visibilité}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+\subsubsection{Assignation des actions (archivage, duplication)}
+Pour organiser les documents, vous pouvez assigner des actions telles que l'archivage ou la duplication :
+
+\begin{itemize}
+    \item Sélectionnez le document à gérer.
+    \item Choisissez l'action appropriée (archiver, dupliquer,manage tags).
+    \item Confirmez l'action pour appliquer les modifications.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{23.png}
+    \caption{Assignation des actions}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+
+
+\subsubsection{Création de nouveaux documents}
+Pour ajouter de nouvelles connaissances, créez un nouveau document :
+
+\begin{itemize}
+    \item Accédez à la section "Documents".
+    \item Cliquez sur "New".
+    \item Remplissez les champs requis (titre, contenu, catégorie, type).
+    \item Enregistrez le document.
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{23.png}
+    \caption{Création de nouveaux documents}
+    \label{fig:interface_knowledge}
+\end{figure}
+
+
+
+\subsection{Bureaucrat Knowledge}
+
+\subsubsection{Affichage des connaissances}
+Les connaissances peuvent être affichées sur le site web pour faciliter l'accès :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{25.png}
+    \caption{Affichage des connaissances}
+    \label{fig:interface_knowledge}
+\end{figure}
+\begin{itemize}
+    \item Accédez à la section "bureaucrat knowledge" sur le site web de l'entreprise.
+    \item Parcourez les catégories et les types de documents disponibles.
+    \item Sélectionnez un document pour afficher son contenu.
+\end{itemize}
+
+
+
+\subsubsection{Recherche des connaissances}
+Les utilisateurs peuvent rechercher des connaissances spécifiques via une barre de recherche :
+
+\begin{itemize}
+    
+    \item Saisissez des mots-clés dans la barre de recherche.
+    \item Parcourez les résultats de recherche pour trouver le document pertinent.
+    \item Cliquez sur le document pour afficher son contenu.
+\end{itemize}
+
+\subsubsection{Accès aux connaissances}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{26.png}
+    \caption{Accès aux connaissances}
+    \label{fig:interface_knowledge}
+\end{figure}
+Les utilisateurs peuvent accéder aux connaissances en suivant ces étapes :
+
+\begin{itemize}
+    \item Accédez à la section "Knowledge" sur le site web.
+    \item Sélectionnez la catégorie ou le type de document.
+    \item Cliquez sur le document souhaité pour afficher les détails.
+\end{itemize}
+
+Le module "Courrier" facilite la gestion des courriers et des connaissances, offrant une solution complète et personnalisable pour répondre aux besoins spécifiques de l'entreprise. Grâce à une interface conviviale et des fonctionnalités robustes, les utilisateurs peuvent gérer efficacement les demandes et les documents, améliorant ainsi la productivité et la satisfaction des clients.
+
+\chapter{Développement d'une Application de GED et d'Archivage pour l'Entreprise PROCHECK}
+
+\section{Présentation du Projet}
+
+L'objectif principal de ce projet était de développer une application de Gestion Électronique de Documents (GED) et d'archivage pour l'entreprise PROCHECK. Ce projet visait à améliorer la gestion documentaire en digitalisant les processus existants, facilitant ainsi l'accès, l'organisation et la conservation des documents.
+
+\section{Structure du Dépôt de Documents}
+
+Chez PROCHECK, la gestion des documents papier est organisée de manière systématique dans un dépôt structuré pour optimiser le stockage et l'accès aux documents physiques. Ce dépôt est conçu comme suit :
+
+\begin{itemize}
+    \item \textbf{Disposition générale} : Le dépôt est constitué de milliers de cases de rangement, chacune conçue pour contenir un nombre défini de cartons.
+    \item \textbf{Dimensions des cases} : Chaque case du dépôt peut contenir jusqu'à 10 cartons.qui se compose en deux etage 5 cartons au dessous des 5 autre cartons.
+   
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{depot_documentaire.png}
+    \caption{Illustration de la structure du dépôt de documents chez PROCHECK.}
+    \label{fig:depot}
+\end{figure}
+
+\section{Optimisation du Stockage et de l'Accès aux Documents}
+
+La structure du dépôt permet une organisation efficace des documents :
+\begin{itemize}
+    \item \textbf{Centralisation des documents} : La disposition en cases et cartons permet de centraliser un grand volume de documents dans un espace réduit, facilitant la gestion du stockage.
+    \item \textbf{Facilité d'accès} : La structure en cases permet de localiser rapidement des cartons spécifiques, simplifiant le processus de recherche et de récupération des documents nécessaires.
+    \item \textbf{Sécurité et Conservation} : Les cartons protègent les documents contre les risques physiques et environnementaux, garantissant leur conservation à long terme.
+\end{itemize}
+
+\section{Transition vers la Gestion Électronique des Documents}
+
+L'intégration des solutions de GED et d'archivage numérique vise à moderniser et améliorer la gestion des documents chez PROCHECK. En digitalisant les documents, l'entreprise aspire à :
+\begin{itemize}
+    \item \textbf{Réduire l'espace de stockage physique} : La transition vers des formats numériques permet de libérer de l'espace dans le dépôt.
+    \item \textbf{Accélérer l'accès aux informations} : Les documents numérisés peuvent être consultés et recherchés rapidement via des interfaces numériques, réduisant le temps consacré à la recherche de documents physiques.
+    \item \textbf{Améliorer la sécurité} : Les documents numériques peuvent être protégés par des systèmes de sécurité avancés, réduisant les risques de perte ou de dommages.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{transition_numerique.png}
+    \caption{Illustration de la transition de la gestion papier à la gestion numérique chez PROCHECK.}
+    \label{fig:transition}
+\end{figure}
+
+\section{Objectifs}
+
+Les objectifs spécifiques du projet incluent :
+\begin{itemize}
+    \item Améliorer l'efficacité opérationnelle de PROCHECK en automatisant la gestion documentaire.
+    \item Réduire les erreurs manuelles grâce à l'utilisation de l'OCR pour l'extraction des données.
+    \item Faciliter l'accès et l'organisation des documents pour les utilisateurs.
+\end{itemize}
+
+\section{Besoins Spécifiques de PROCHECK}
+
+PROCHECK avait des besoins spécifiques en termes de gestion documentaire :
+\begin{itemize}
+    \item Gestion et archivage des documents bancaires.
+    \item Extraction automatique des données à partir de documents scannés.
+    \item Intégration avec leur système ERP existant basé sur Odoo.
+\end{itemize}
+
+\section{Développement de l'Application}
+
+\subsection{Analyse des Besoins}
+
+Une analyse détaillée des besoins a été réalisée pour comprendre les exigences spécifiques de PROCHECK, y compris les types de documents à gérer et les flux de travail existants.
+
+\subsection{Conception de l'Architecture de l'Application}
+
+L'architecture de l'application a été conçue pour permettre une intégration transparente avec Odoo et pour supporter les fonctionnalités de GED et d'OCR. Cela a inclus la conception de la base de données, les interfaces utilisateur et les services backend.
+
+\subsection{Implémentation des Fonctionnalités}
+
+L'implémentation des fonctionnalités s'est déroulée en plusieurs phases :
+
+\paragraph{Insertion de documents}
+Les utilisateurs peuvent insérer des documents dans l'application via une interface conviviale. Les documents sont ensuite stockés de manière sécurisée dans la base de données.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Accéder à Consultation Physique.png}
+    \caption{Illustration Accéder à Consultation Physique}
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Extraction de données via OCR}
+Une fonctionnalité d'OCR a été implémentée pour extraire automatiquement les données des documents scannés. Cela permet de réduire les erreurs manuelles et d'accélérer le processus de traitement des documents.
+
+\paragraph{Organisation et archivage des documents}
+Les documents sont automatiquement organisés et archivés en fonction des données extraites, facilitant ainsi leur accès et leur gestion.
+
+\subsection{Intégration avec Odoo}
+
+L'application a été intégrée avec le système ERP Odoo de PROCHECK pour assurer une gestion centralisée des documents et permettre aux utilisateurs de bénéficier des fonctionnalités existantes d'Odoo.
+
+\section{Processus Spécifiques chez PROCHECK}
+
+\subsection{Consultation Physique}
+
+\subsubsection{Partie CIH}
+
+\paragraph{Accéder à Consultation Physique}
+\begin{itemize}
+    \item Dans le site web, cliquez sur "Consultation Physique".
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Accéder à Consultation Physique.png}
+    \caption{Illustration Accéder à Consultation Physique}
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Liste des demandes de consultation}
+\begin{itemize}
+    \item Vous verrez une liste des demandes de consultation. Cliquez sur "Nouvelle demande de consultation" pour créer une nouvelle demande de consultation.
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{demandes de consultation.png}
+    \caption{Illustration demandes de consultation}
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Demande de consultation}
+\begin{itemize}
+    \item Un nouveau formulaire apparaît où vous devez entrer les détails de la demande de consultation :
+    \begin{itemize}
+        \item Entrez la "Date de consultation".
+        \item Entrez le "Dossier".
+        \item Cliquez sur "Ajouter un dossier" pour ajouter le dossier.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Envoyer la Demande}
+\begin{itemize}
+    \item Cliquez sur "Envoyer la demande" pour envoyer la demande de consultation.
+    \item Vous recevrez un message de confirmation : "Votre demande de consultation a été envoyée avec succès !".
+\end{itemize}
+
+\paragraph{Voir la Demande}
+\begin{itemize}
+    \item Après avoir soumis la demande, vous serez redirigé vers la liste des demandes de consultation où vous pourrez voir le statut de votre demande. La nouvelle demande sera listée avec la date et le statut.
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{liste des demandes de consultation .png}
+    \caption{Illustration liste des demandes de consultation }
+    \label{fig:transition}
+\end{figure}
+
+
+\subsubsection{Partie PROCHECK}
+
+\paragraph{Accéder aux demandes de consultation}
+\begin{itemize}
+    \item Allez dans le menu "Demandes".
+    \item Sélectionnez "Demandes de consultation".
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Accéder aux demandes de consultation.png}
+    \caption{Illustration Accéder aux demandes de consultation }
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Valider une demande de consultation}
+\begin{itemize}
+    \item Cliquez sur "CONFIRMER" pour valider la demande.
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Valider une demande de consultation.png}
+    \caption{Illustration Valider une demande de consultation }
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Gérer les transferts liés à une demande de consultation}
+\begin{itemize}
+    \item Accédez au bouton "Livraison" dans la demande de consultation.
+    \item Vous verrez les transferts liés avec les détails tels que la référence, la source, la destination, le contact, la date prévue, le document d'origine et le statut.
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Gérer les transferts liés à une demande de consultation.png}
+    \caption{Illustration Gérer les transferts liés à une demande de consultation }
+    \label{fig:transition}
+\end{figure}
+
+\subsection{Consultation sur Place}
+
+\subsubsection{Partie CIH}
+
+\paragraph{Accéder à Consultation sur Place}
+\begin{itemize}
+    \item Dans le site web, cliquez sur "Consultation sur place".
+\end{itemize}
+
+\paragraph{Liste des demandes de consultation}
+\begin{itemize}
+    \item Vous verrez une liste des demandes de consultation. Cliquez sur "Nouvelle demande de consultation" pour créer une nouvelle demande de consultation.
+\end{itemize}
+
+\paragraph{Demande de consultation}
+\begin{itemize}
+    \item Un nouveau formulaire apparaît où vous devez entrer les détails de la demande de consultation :
+    \begin{itemize}
+        \item Entrez la "Date de consultation".
+        \item Entrez le "Dossier".
+        \item Entrez le nom du consultant qui fera la demande.
+        \item Entrez le CIN du consultant.
+        \item Cliquez sur "Ajouter un dossier" pour ajouter le dossier.
+    \end{itemize}
+    \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Demande de consultation sur place.png}
+    \caption{Illustration Demande de consultation sur place }
+    \label{fig:transition}
+\end{figure}
+\end{itemize}
+
+\paragraph{Envoyer la Demande}
+\begin{itemize}
+    \item Cliquez sur "Envoyer la demande" pour envoyer la demande de consultation.
+    \item Vous recevrez un message de confirmation : "Votre demande de consultation a été envoyée avec succès !".
+\end{itemize}
+
+\paragraph{Voir la Demande}
+\begin{itemize}
+    \item Après avoir soumis la demande, vous serez redirigé vers la liste des demandes de consultation où vous pourrez voir le statut de votre demande. La nouvelle demande sera listée avec la date et le statut.
+\end{itemize}
+
+\subsubsection{Partie PROCHECK}
+
+\paragraph{Accéder aux demandes de consultation}
+\begin{itemize}
+    \item Allez dans le menu "Demandes".
+    \item Sélectionnez "Demandes de consultation".
+\end{itemize}
+
+\paragraph{Valider une demande de consultation}
+\begin{itemize}
+    \item Cliquez sur "CONFIRMER" pour valider la demande.
+\end{itemize}
+ \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Valider une demande de consultation sur place.png}
+    \caption{Illustration Valider une demande de consultation sur place }
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Gérer les transferts liés à une demande de consultation}
+\begin{itemize}
+    \item Accédez au bouton "Livraison" dans la demande de consultation.
+    \item Vous verrez les transferts liés avec les détails tels que la référence, la source, la destination, le contact, la date prévue, le document d'origine et le statut.
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Gérer les transferts liés à une demande de consultation sur place.png}
+    \caption{Illustration Gérer les transferts liés à une demande de consultation sur place }
+    \label{fig:transition}
+\end{figure}
+
+\subsection{Demande de Retour}
+
+\subsubsection{Partie CIH}
+
+\paragraph{Accéder à Demande de Retour}
+\begin{itemize}
+    \item Dans le site web, cliquez sur "Demande de Retour".
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ Demande de retour.png}
+    \caption{Illustration Demande de retour }
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Liste des demandes de retour}
+\begin{itemize}
+    \item Vous verrez une liste des demandes de retour. Cliquez sur "Nouvelle demande de retour" pour créer une nouvelle demande de retour.
+\end{itemize}
+
+\paragraph{Demande de retour}
+\begin{itemize}
+    \item Un nouveau formulaire apparaît où vous devez entrer les détails de la demande de retour :
+    \begin{itemize}
+        \item Entrez la "Date de retour".
+        \item Entrez le "Dossier".
+        \item Entrez la date et le nom du demandeur.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Envoyer la Demande}
+\begin{itemize}
+    \item Cliquez sur "Envoyer la demande" pour envoyer la demande de retour.
+    \item Vous recevrez un message de confirmation : "Votre demande de retour a été envoyée avec succès !".
+\end{itemize}
+
+\paragraph{Voir la Demande}
+\begin{itemize}
+    \item Après avoir soumis la demande, vous serez redirigé vers la liste des demandes de retour où vous pourrez voir le statut de votre demande. La nouvelle demande sera listée avec la date et le statut.
+\end{itemize}
+
+\subsubsection{Partie PROCHECK}
+
+\paragraph{Accéder aux demandes de retour}
+\begin{itemize}
+    \item Allez dans le menu "Demandes".
+    \item Sélectionnez "Demandes de retour".
+\end{itemize}
+
+\paragraph{Valider une demande de retour}
+\begin{itemize}
+    \item Cliquez sur "CONFIRMER" pour valider la demande.
+\end{itemize}
+
+\paragraph{Gérer les transferts liés à une demande de retour}
+\begin{itemize}
+    \item Accédez au bouton "Livraison" dans la demande de retour.
+    \item Vous verrez les transferts liés avec les détails tels que la référence, la source, la destination, le contact, la date prévue, le document d'origine et le statut.
+\end{itemize}
+
+\subsection{Consultation Digitale}
+
+\subsubsection{Partie CIH}
+
+\paragraph{Accéder à Consultation Digitale}
+\begin{itemize}
+    \item Dans le site web, cliquez sur "Consultation Digitale".
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ Demande de consultation Digitale.png}
+    \caption{Illustration Demande de consultation Digitale }
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Liste des demandes de consultation digitale}
+\begin{itemize}
+    \item Vous verrez une liste des demandes de consultation digitale. Cliquez sur "Nouvelle demande de consultation digitale" pour créer une nouvelle demande.
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ consultation Digitale.png}
+    \caption{Illustration de consultation Digitale }
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Demande de consultation digitale}
+\begin{itemize}
+    \item Un nouveau formulaire apparaît où vous devez entrer les détails de la demande de consultation digitale :
+    \begin{itemize}
+        \item Entrez la "Date de consultation digitale".
+        \item Entrez le "Dossier".
+        \item Entrez le type de document demandé.
+        \item Entrez le nom du demandeur.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Envoyer la Demande}
+\begin{itemize}
+    \item Cliquez sur "Envoyer la demande" pour envoyer la demande de consultation digitale.
+    \item Vous recevrez un message de confirmation : "Votre demande de consultation digitale a été envoyée avec succès !".
+\end{itemize}
+
+\paragraph{Voir la Demande}
+\begin{itemize}
+    \item Après avoir soumis la demande, vous serez redirigé vers la liste des demandes de consultation digitale où vous pourrez voir le statut de votre demande. La nouvelle demande sera listée avec la date et le statut.
+\end{itemize}
+
+\subsubsection{Partie PROCHECK}
+
+\paragraph{Accéder aux demandes de consultation digitale}
+\begin{itemize}
+    \item Allez dans le menu "Demandes".
+    \item Sélectionnez "Demandes de consultation digitale".
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ demandes de consultation digitale 1.png}
+    \caption{Illustration demandes de consultation digitale }
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Valider une demande de consultation digitale}
+\begin{itemize}
+    \item Cliquez sur "CONFIRMER" pour valider la demande.
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ Valider une demande de consultation digitale.png}
+    \caption{Illustration Valider une demande de consultation digitale }
+    \label{fig:transition}
+\end{figure}
+
+\paragraph{Gérer les transferts liés à une demande de consultation digitale}
+\begin{itemize}
+    \item Accédez au bouton "Livraison" dans la demande de consultation digitale.
+    \item Vous verrez les transferts liés avec les détails tels que la référence, la source, la destination, le contact, la date prévue, le document d'origine et le statut.
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ Gérer les transferts liés à une demande de consultation digitale.png}
+    \caption{Illustration Gérer les transferts liés à une demande de consultation digitale }
+    \label{fig:transition}
+\end{figure}
+
+\section{Tests et Validation}
+
+Avant le déploiement, des tests approfondis ont été réalisés pour évaluer :
+\begin{itemize}
+    \item \textbf{Précision de la reconnaissance OCR} : Évaluation de la précision sur divers types de documents et conditions d'éclairage.
+    \item \textbf{Robustesse de l'application} : Vérification de la fiabilité de l'application face à différentes conditions.
+    \item \textbf{Convivialité de l'interface} : Assurer que l'interface utilisateur est intuitive et efficace.
+\end{itemize}
+
+Les retours des tests ont permis d'améliorer les algorithmes de traitement d'image et les interfaces utilisateur pour garantir une expérience optimale.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{screenshot8.png}
+    \caption{Tests d'efficacité de l'OCR.}
+\end{figure}
+
+\section{Déploiement et Formation}
+
+Une fois les applications développées et validées, j'ai participé au déploiement d'un rapport d'utilisation chez PROCHECK et à la formation des utilisateurs finaux sur les nouvelles fonctionnalités basées sur OCR. L'accent a été mis sur la gestion efficace des documents et l'exploitation maximale des capacités automatisées de l'application.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{1.jpg}
+    \caption{Interface de site PROCHECK recherche.}
+\end{figure}
+
+\subsection{Plan de Déploiement}
+
+Le plan de déploiement a été conçu pour minimiser les interruptions de service et pour assurer une transition en douceur vers le nouveau système.
+
+\subsection{Formation et Documentation pour les Utilisateurs}
+
+Une formation complète a été fournie aux utilisateurs finaux pour leur permettre de maîtriser les nouvelles fonctionnalités. De la documentation détaillée a également été préparée pour les assister dans l'utilisation quotidienne de l'application.
+
+\chapter{Résultats et Bilan}
+
+\section{Résultats obtenus}
+
+\subsection{Impact des projets sur l'entreprise}
+Les projets réalisés ont eu un impact significatif sur l'efficacité opérationnelle de PROCHECK. Grâce à l'application de GED et d'archivage, l'entreprise a pu :
+\begin{itemize}
+    \item \textbf{Réduire les erreurs manuelles} : L'implémentation de l'OCR a automatisé l'extraction des données, diminuant les erreurs humaines et accélérant les processus de traitement des documents.
+    \item \textbf{Améliorer la gestion documentaire} : La centralisation et l'organisation automatique des documents ont facilité l'accès et la gestion des informations.
+    \item \textbf{Optimiser les processus internes} : L'intégration avec Odoo a permis une meilleure synchronisation des données et des opérations, renforçant ainsi la cohérence et l'efficacité des flux de travail.
+\end{itemize}
+
+\subsection{Améliorations apportées aux processus internes}
+Les projets ont également permis d'apporter plusieurs améliorations aux processus internes de PROCHECK :
+\begin{itemize}
+    \item \textbf{Automatisation des tâches répétitives} : La réduction des tâches manuelles a libéré du temps pour les employés, leur permettant de se concentrer sur des activités à plus forte valeur ajoutée.
+    \item \textbf{Gain de temps} : Les processus de gestion documentaire ont été accélérés, réduisant le temps nécessaire pour traiter et archiver les documents.
+    \item \textbf{Amélioration de la conformité} : La meilleure organisation et traçabilité des documents ont aidé l'entreprise à respecter plus facilement les réglementations et les normes en vigueur.
+\end{itemize}
+
+\section{Compétences acquises}
+
+\subsection{Techniques}
+Durant ce stage, j'ai pu acquérir et renforcer plusieurs compétences techniques essentielles pour un analyste de données :
+\begin{itemize}
+    \item \textbf{Programmation} : Développement d'applications en utilisant Python et Odoo, des compétences clés pour l'analyse et la gestion des données.
+    \item \textbf{Utilisation d'Odoo} : Maîtrise de la personnalisation et de l'extension des modules Odoo, une compétence précieuse pour la gestion des données d'entreprise.
+    \item \textbf{OCR} : Implémentation et optimisation des techniques de reconnaissance optique de caractères pour l'extraction automatique des données, une technologie utile pour automatiser la collecte de données à partir de sources non structurées.
+\end{itemize}
+
+\subsection{Non techniques}
+En plus des compétences techniques, ce stage m'a permis de développer des compétences non techniques essentielles :
+\begin{itemize}
+    \item \textbf{Gestion de projet} : Planification et gestion efficace des différentes phases du projet, de l'analyse des besoins à la livraison finale.
+    \item \textbf{Communication} : Collaboration avec les équipes de développement et les utilisateurs finaux, présentation des progrès et des résultats, et formation des utilisateurs.
+\end{itemize}
+
+\section{Valorisation de mon profil en tant que Data Analyst}
+Ce stage a considérablement enrichi mon profil en tant que data analyst en me permettant d'acquérir des compétences pratiques et des expériences concrètes dans la gestion et l'analyse des données. Les projets réalisés m'ont donné l'occasion de travailler sur des technologies et des outils directement applicables à l'analyse de données, comme l'OCR pour l'extraction de données non structurées et Odoo pour la gestion des données d'entreprise. En outre, la collaboration avec les équipes de développement et les utilisateurs finaux a renforcé mes compétences en communication et en gestion de projet, des qualités essentielles pour réussir dans le domaine de l'analyse de données.
+
+\chapter{Conclusion}
+
+\section{Bilan personnel}
+
+\subsection{Réflexion sur l'expérience de stage}
+Mon stage chez Doosys a été une expérience enrichissante et formatrice. J'ai eu l'opportunité de travailler sur des projets concrets qui ont eu un impact réel sur l'entreprise. Cette expérience m'a permis de mettre en pratique mes connaissances théoriques et de développer de nouvelles compétences, notamment en gestion de données et en analyse.
+
+\subsection{Évolution des compétences et des connaissances}
+J'ai constaté une évolution significative de mes compétences techniques, notamment en programmation, en utilisation d'Odoo et en techniques d'OCR. En parallèle, j'ai également développé des compétences en gestion de projet et en communication, essentielles pour réussir dans un environnement professionnel. Ces compétences sont directement applicables à une carrière en tant que data analyst, où l'extraction, la gestion et l'analyse des données sont primordiales.
+
+\section{Perspectives d'avenir}
+
+\subsection{Projets futurs}
+À l'avenir, je souhaite continuer à travailler sur des projets qui allient technologie et optimisation des processus. Je suis particulièrement intéressé par le développement de solutions innovantes basées sur l'intelligence artificielle et l'automatisation. J'aimerais explorer davantage le domaine de l'analyse de données, en particulier l'application de techniques avancées de machine learning et de big data pour résoudre des problèmes complexes.
+
+\subsection{Développement professionnel envisagé}
+Je prévois de poursuivre mon développement professionnel en approfondissant mes connaissances en data science et en gestion de projet. J'ai l'intention de continuer à me former, que ce soit par des études supplémentaires, des certifications ou des projets personnels, pour rester à la pointe des nouvelles technologies et des meilleures pratiques du secteur. Mon objectif est de devenir un expert en analyse de données, capable de mener des projets d'envergure et de contribuer de manière significative à l'innovation et à l'amélioration des processus dans diverses industries.
+
+
+% Bibliographie
+
+\addcontentsline*{chapter}{Bibliographie}
+\addcontentsline{toc}{chapter}{Bibliographie}
+\begin{thebibliography}{9}
+\bibitem{odoo}
+Odoo, \emph{Odoo Documentation}, [en ligne] disponible sur : \url{https://www.odoo.com/documentation/14.0/}, consulté le 10 juillet 2024.
+
+\bibitem{tesseract}
+Smith, R., \emph{An Overview of the Tesseract OCR Engine}, [en ligne] disponible sur : \url{https://github.com/tesseract-ocr/tesseract}, consulté le 12 juillet 2024.
+
+\bibitem{opencv}
+Bradski, G., \emph{The OpenCV Library}, [en ligne] disponible sur : \url{https://opencv.org/}, consulté le 13 juillet 2024.
+
+\bibitem{procheck}
+Procheck, \emph{Procheck - Solutions de Traitement Documentaire}, [en ligne] disponible sur : \url{http://www.procheck.ma/}, consulté le 15 juillet 2024.
+
+\end{thebibliography}
+\newpage
+
+% Annexes
+\chapter*{Annexes}
+\addcontentsline{toc}{chapter}{Annexes}
+
+       \item \textbf{Tous les codes du projet réalisés au cours du stage :}
+        \begin{itemize}
+        \item \href{https://github.com/ouchchenomar/odoo}{Projet réalisé au cours du stage}
+        \end{itemize}
+         \item \textbf{le codes Latex utiliser pour création du rapport de mon stage :}
+        \begin{itemize}
+        \item \href{https://github.com/ouchchenomar/odoo}{Projet réalisé au cours du stage}
+        \end{itemize}
+
+
+
+\end{document}
 
